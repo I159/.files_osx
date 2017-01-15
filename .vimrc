@@ -25,6 +25,8 @@ execute pathogen#infect()
 " Confirm save on exit
 set confirm
 
+set nowrap
+
 " Spell check
 set spell
 
@@ -33,14 +35,13 @@ set backspace=2
 
 " Show trailing whitespaces
 set list
-set listchars+=trail:.
+set listchars=trail:.
 
 " Let Nerdtree ignore vim backup files
 let NERDTreeIgnore = ['\.swo$', '\.swp$']
 
 " Open files on new buffers
 let NERDTreeMapOpenInTab='\r'
-
 
 " ----------------------- mappings ------------------------------
 

@@ -10,8 +10,7 @@ highlight OverLength ctermfg=244
 match OverLength /\%80v.*/
 
 " Show tabs
-set list
-set listchars=tab:>>
+set listchars+=tab:->
 
 " Enable python syntax checker
 let g:syntastic_python_checkers = ['pylint']
