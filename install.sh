@@ -1,11 +1,15 @@
 echo "Remove current installation of vim"
-# sudo apt-get -y remove vim-common vim-runtime
+sudo apt-get -y remove vim-common vim-runtime
 
 DOTFILES="$(sudo find $HOME -name '\.files')"
-echo ".files located in $DOTFILES"
+echo ".files located at $DOTFILES"
 cd $DOTFILES
 echo "Update vim plugins and other funcy staff"
 git submodule update --init --recursive
+
+echo "Link colors and autoload to a right places"
+ln -s "$(pwd)/wombat256.vim/colors" "$(pwd)/.vim/colors"
+ln -s "$(pwd)/.vim/bundle/vim-pathogen/autoload" "$(pwd)/.vim/autoload"
 
 echo "Backup existing dot files"
 DATE=$(date +%Y-%m-%d-%T)
@@ -51,4 +55,4 @@ rm $HOME/.vimgo
 ln -s $DOTFILES/.vimgo $HOME/.vimgo
 
 echo "Install latest vim"
-# sudo apt-get -y install vim
+sudo apt-get -y install vim
