@@ -1,41 +1,54 @@
-sudo apt-get -y remove vim-common vim-runtime
+echo "Remove current installation of vim"
+# sudo apt-get -y remove vim-common vim-runtime
 
 DOTFILES="$(sudo find $HOME -name '\.files')"
+echo ".files located in $DOTFILES"
 cd $DOTFILES
-echo "DOTFILES PATH " $DOTFILES
+echo "Update vim plugins and other funcy staff"
 git submodule update --init --recursive
 
-cd $HOME
-if ! [ -L .vim ];
+echo "Backup existing dot files"
+DATE=$(date +%Y-%m-%d-%T)
+mkdir $HOME/.backup_dot_files-$DATE
+if [ -L $HOME/.vimrc ]
 then
-	rm -rf .vim
-	ln -s $DOTFILES/.vim .vim
+	rm $HOME/.vimrc
+else
+	mv -f $HOME/.vimrc $HOME/.backup_dot_files
 fi
 
-if ! [ -L .vimrc ];
+if [ -L $HOME/__git_ps1.sh ]
 then
-	rm -f .vimrc
-	ln -s $DOTFILES/.vimrc .vimrc
-fi
-ln -s $DOTFILES/.vimpy .vimpy
-ln -s $DOTFILES/.vimgo .vimgo
-
-if ! [ -L .gitconfig ];
-then
-	rm -f .gitconfig
-	ln -s $DOTFILES/.gitconfig.exmpl  .gitconfig
+	rm $HOME/__git_ps1.sh
+else
+	mv -f $HOME/__git_ps1.sh $HOME/.backup_dot_files
 fi
 
-if ! [ -L __git_ps1.sh ];
+if [ -L $HOME/.gitconfig ]
 then
-	rm -f __git_ps1.sh
-	ln -s $DOTFILES/dev-bash-git-ps1/bash_git_ps1.sh $HOME/__git_ps1.sh
+	rm $HOME/.gitconfig
+else
+	mv -f $HOME/.gitconfig $HOME/.backup_dot_files
 fi
 
-if ! [ -L .bashrc ];
+if [ -L $HOME/.bashrc ]
 then
-	rm -f .bashrc
-	ln -s $DOTFILES/.bashrc .bashrc
+	rm $HOME/.bashrc
+else
+	mv -f $HOME/.bashrc $HOME/.backup_dot_files
 fi
 
-sudo apt-get -y install vim
+echo "Create symbolic links to dot files"
+ln -s $DOTFILES/.gitconfig.exmpl  $HOME/.gitconfig
+ln -s $DOTFILES/dev-bash-git-ps1/bash_git_ps1.sh $HOME/__git_ps1.sh
+ln -s $DOTFILES/.bashrc $HOME/.bashrc
+ln -s $DOTFILES/.vimrc $HOME/.vimrc
+rm $HOME/.vim
+ln -s $DOTFILES/.vim $HOME/.vim
+rm $HOME/.vimpy
+ln -s $DOTFILES/.vimpy $HOME/.vimpy
+rm $HOME/.vimgo
+ln -s $DOTFILES/.vimgo $HOME/.vimgo
+
+echo "Install latest vim"
+# sudo apt-get -y install vim
