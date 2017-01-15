@@ -31,14 +31,16 @@ set spell
 " Allow backspacing
 set backspace=2
 
+" Show trailing whitespaces
+set list
+set listchars+=trail:.
+
 " Let Nerdtree ignore vim backup files
 let NERDTreeIgnore = ['\.swo$', '\.swp$']
 
-" Include Go specific settings
-au FileType go source .go.vim
+" Open files on new buffers
+let NERDTreeMapOpenInTab='\r'
 
-" Include Py specific settings
-au FileType python source .py.vim
 
 " ----------------------- mappings ------------------------------
 

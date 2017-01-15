@@ -47,8 +47,8 @@ ln -s $DOTFILES/.gitconfig.exmpl  $HOME/.gitconfig
 ln -s $DOTFILES/dev-bash-git-ps1/bash_git_ps1.sh $HOME/__git_ps1.sh
 ln -s $DOTFILES/.bashrc $HOME/.bashrc
 ln -s $DOTFILES/.vimrc $HOME/.vimrc
-ln -s $DOTFILES/py.vim $HOME/py.vim
-ln -s $DOTFILES/go.vim $HOME/go.vim
+ln -s $DOTFILES/pyvimrc $HOME/pyvimrc
+ln -s $DOTFILES/govimrc $HOME/govimrc
 rm $HOME/.vim
 ln -s $DOTFILES/.vim $HOME/.vim
 rm $HOME/.vimpy
