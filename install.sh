@@ -1,5 +1,5 @@
 echo "Remove current installation of vim"
-sudo apt-get -y remove vim-common vim-runtime
+#sudo apt-get -y remove vim-common vim-runtime
 
 DOTFILES="$(sudo find $HOME -name '\.files')"
 echo ".files located at $DOTFILES"
@@ -47,6 +47,8 @@ ln -s $DOTFILES/.gitconfig.exmpl  $HOME/.gitconfig
 ln -s $DOTFILES/dev-bash-git-ps1/bash_git_ps1.sh $HOME/__git_ps1.sh
 ln -s $DOTFILES/.bashrc $HOME/.bashrc
 ln -s $DOTFILES/.vimrc $HOME/.vimrc
+ln -s $DOTFILES/py.vim $HOME/py.vim
+ln -s $DOTFILES/go.vim $HOME/go.vim
 rm $HOME/.vim
 ln -s $DOTFILES/.vim $HOME/.vim
 rm $HOME/.vimpy
@@ -55,4 +57,4 @@ rm $HOME/.vimgo
 ln -s $DOTFILES/.vimgo $HOME/.vimgo
 
 echo "Install latest vim"
-sudo apt-get -y install vim
+#sudo apt-get -y install vim

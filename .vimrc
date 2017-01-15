@@ -31,6 +31,15 @@ set spell
 " Allow backspacing
 set backspace=2
 
+" Let Nerdtree ignore vim backup files
+let NERDTreeIgnore = ['\.swo$', '\.swp$']
+
+" Include Go specific settings
+au FileType go source .go.vim
+
+" Include Py specific settings
+au FileType python source .py.vim
+
 " ----------------------- mappings ------------------------------
 
 " Save with ,w
