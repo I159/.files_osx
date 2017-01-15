@@ -51,7 +51,6 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     # Use custom PS1
-    echo "USE DAT FUCKING PS1"
     . ~/__git_ps1.sh
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '

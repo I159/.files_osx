@@ -28,6 +28,8 @@ set confirm
 " Spell check
 set spell
 
+" Allow backspacing
+set backspace=2
 
 " ----------------------- mappings ------------------------------
 
@@ -51,3 +53,8 @@ map <leader>n :NERDTreeToggle<CR>
 
 " List recently edited files
 map <leader>mr :MRU<CR>
+
+" Buffers navigation
+map <leader>b :bprevious<CR>
+map <leader>f :bnext<CR
+map <leader>ls :ls<CR>
