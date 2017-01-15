@@ -8,7 +8,7 @@ echo "Update vim plugins and other funcy staff"
 git submodule update --init --recursive
 
 echo "Link colors and autoload to a right places"
-ln -s "$(pwd)/wombat256.vim/colors" "$(pwd)/.vim/colors"
+ln -s "$(pwd)/wombat256.vim/colors" "$(pwd)/.vim/colors" 
 ln -s "$(pwd)/.vim/bundle/vim-pathogen/autoload" "$(pwd)/.vim/autoload"
 
 echo "Backup existing dot files"
