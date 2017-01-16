@@ -106,4 +106,4 @@ fi
 # Enable virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/workspace
-source $(sudo find / -name virtualenvwrapper.sh)
+. /usr/share/virtualenvwrapper/virtualenvwrapper.sh

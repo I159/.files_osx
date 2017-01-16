@@ -13,9 +13,6 @@ syntax on
 " Set line numbers
 set nu
 
-" Set leader
-let mapleader = ","
-
 " Colorscheme wombat256
 colorscheme wombat256mod
 
@@ -35,7 +32,19 @@ set backspace=2
 
 " Show trailing whitespaces
 set list
-set listchars=trail:.
+set listchars=trail:.,tab:->
+
+" Indentation
+set tabstop=4
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+
+" Move backups to tmp
+set backupdir=$TEMP,$TMP,.
 
 " Let Nerdtree ignore vim backup files
 let NERDTreeIgnore = ['\.swo$', '\.swp$']
@@ -44,6 +53,11 @@ let NERDTreeIgnore = ['\.swo$', '\.swp$']
 let NERDTreeMapOpenInTab='\r'
 
 " ----------------------- mappings ------------------------------
+" Set leader
+let mapleader = ","
+
+" Toggle paste mode
+set pastetoggle=<f5>
 
 " Save with ,w
 map <leader>w :w<CR>
@@ -70,3 +84,6 @@ map <leader>mr :MRU<CR>
 map <leader>b :bprevious<CR>
 map <leader>f :bnext<CR
 map <leader>ls :ls<CR>
+
+" Line break
+map % i<CR><Esc>
