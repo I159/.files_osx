@@ -9,9 +9,6 @@ highlight ColorColumn ctermbg=233
 highlight OverLength ctermfg=244
 match OverLength /\%80v.*/
 
-" Indentation settings
-set tw=80               " break lines when line length increases
-
 " Enable python syntax checker
 let g:syntastic_python_checkers = ['pylint']
 

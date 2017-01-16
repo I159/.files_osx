@@ -32,16 +32,11 @@ set backspace=2
 
 " Show trailing whitespaces
 set list
-set listchars=trail:.,tab:->
+set listchars=trail:.,tab:>-
 
-" Indentation
-set tabstop=4
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
-set smartindent
+" enable file type plugins
+filetype plugin indent on
+filetype plugin on
 
 " Move backups to tmp
 set backupdir=$TEMP,$TMP,.
@@ -87,3 +82,6 @@ map <leader>ls :ls<CR>
 
 " Line break
 map % i<CR><Esc>
+
+" Remove trailing whitespaces
+map <leader>dt :%s/\s\+$//e<CR>
