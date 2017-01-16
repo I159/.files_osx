@@ -20,6 +20,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 0
 
+" Enable advanced python syntax
+let python_highlight_all = 1
+
 " ------------------- Mappings ---------------------------
 " Toggle syntastic
 map <C-w> :SyntasticCheck<CR> :SyntasticToggleMode<CR>
