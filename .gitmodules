@@ -31,3 +31,6 @@
 [submodule "dev-bash-git-ps1"]
 	path = dev-bash-git-ps1
 	url = git@github.com:I159/dev-bash-git-ps1.git
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git
