@@ -1,5 +1,5 @@
 echo -e "\e[96mRemove current installation of vim"
-#sudo apt-get -y remove vim-common vim-runtime
+sudo apt-get -y remove vim-common vim-runtime
 
 DOTFILES="$(pwd)"
 echo -e " \e[93mUpdate vim plugins and other funcy staff"
@@ -55,4 +55,4 @@ rm $HOME/.vimgo
 ln -s $DOTFILES/.vimgo $HOME/.vimgo
 
 echo -e "\e[94mInstall latest vim"
-#sudo apt-get -y install vim
+sudo apt-get -y install vim
