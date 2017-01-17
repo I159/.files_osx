@@ -23,3 +23,7 @@ let python_highlight_all = 1
 " ------------------- Mappings ---------------------------
 " Toggle syntastic
 map <C-w> :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
+" Jedi: list usages
+let g:jedi#usages_command = "<leader>u"
+

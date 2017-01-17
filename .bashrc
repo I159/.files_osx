@@ -107,3 +107,9 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/workspace
 . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+# Include Go bin into path
+export PATH=$PATH:/usr/local/go/bin
+
+# Set Go workspace
+export GOPATH=$HOME/go_workspace
