@@ -85,3 +85,9 @@ map % i<CR><Esc>
 
 " Remove trailing whitespaces
 map <leader>dt :%s/\s\+$//e<CR>
+
+" Reset search highlighting
+map <F4> :set hlsearch! hlsearch?<CR>
+
+" Replace after cursor
+map <C-g> <C-v>$s
