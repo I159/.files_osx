@@ -16,6 +16,8 @@ let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 0
+let g:syntastic_python_python_exec = "$(which python3)"
+let g:syntastic_python_pylint_exe = "$(which pylint)"
 
 " Enable advanced python syntax
 let python_highlight_all = 1
