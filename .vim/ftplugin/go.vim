@@ -12,3 +12,7 @@ let g:go_highlight_build_constraints = 1
 
 " Auto imports
 let g:go_fmt_command = "goimports"
+
+" ------------------- Mappings ----------------------------
+map <leader>c <Plug>(go-coverage)
+map <leader>t <Plug>(go-test)
