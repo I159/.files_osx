@@ -30,6 +30,9 @@ set spell
 " Allow backspacing
 set backspace=2
 
+" Short tabs
+set tabstop=4
+
 " Show trailing whitespaces
 set list
 set listchars=trail:.,tab:>-
@@ -91,3 +94,11 @@ map <F4> :set hlsearch! hlsearch?<CR>
 
 " Replace after cursor
 map <C-g> <C-v>$s
+
+" Replace with confirmation
+function! Refactor(old, new)
+	exe '%s/' . a:old . '/' . a:new . '/gc'
+endfunction
+
+command -nargs=+ RefactorCmd :call Refactor(<f-args>)
+vnoremap // y:RefactorCmd <C-R>" 
