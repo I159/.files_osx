@@ -32,6 +32,7 @@ set backspace=2
 
 " Short tabs
 set tabstop=4
+set shiftwidth=4
 
 " Show trailing whitespaces
 set list
