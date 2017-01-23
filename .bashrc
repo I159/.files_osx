@@ -113,3 +113,6 @@ export PATH=$PATH:/usr/local/go/bin
 
 # Set Go workspace
 export GOPATH=$HOME/go_workspace
+
+# Add GOPATH/bin to PATH
+export PATH=$PATH:$GOPATH/bin
