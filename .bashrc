@@ -103,11 +103,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# Enable virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/workspace
-. /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-
 # Include Go bin into path
 export PATH=$PATH:/usr/local/go/bin
 
