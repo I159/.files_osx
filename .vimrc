@@ -81,7 +81,7 @@ map <leader>mr :MRU<CR>
 
 " Buffers navigation
 map <leader>b :bprevious<CR>
-map <leader>f :bnext<CR
+map <leader>f :bnext<CR>
 map <leader>ls :ls<CR>
 
 " Line break
