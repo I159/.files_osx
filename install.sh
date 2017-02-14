@@ -41,7 +41,7 @@ fi
 
 echo -e "Create symbolic links to dot files"
 ln -s $DOTFILES/.gitconfig.exmpl  $HOME/.gitconfig
-ln -s $DOTFILES/dev-bash-git-ps1/bash_git_ps1.sh $HOME/__git_ps1.sh
+ln -s $DOTFILES/bash_git_ps1.sh $HOME/__git_ps1.sh
 ln -s $DOTFILES/.bashrc $HOME/.bashrc
 ln -s $DOTFILES/.vimrc $HOME/.vimrc
 rm $HOME/.vim
