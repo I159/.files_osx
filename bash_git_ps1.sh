@@ -9,13 +9,17 @@ RESET='\[\033[0m\]'
 
 
 branch_name()
-
 {
 	local branch=$(git branch 2>/dev/null| grep '^*'| colrm 1 2)
 	if [ -n $branch ]
 	then
 		echo "{$branch}"
 	fi
+}
+
+get_venv()
+{
+	echo "(${VIRTUAL_ENV##/*/})"
 }
 
 get_pwd()
@@ -87,6 +91,11 @@ make_psONE()
 # Git operations could be expensive and a term could rebate. To disable git operations set GIT_OFF=1.
 {
 	PS1="${YELLOW}$(whoami):${LIGHT_GREEN}$(get_pwd)"
+
+	if [[ ${#VIRTUAL_ENV} -gt 0 ]]
+	then
+		PS1="$(get_venv)$PS1"
+	fi
 
 	if [ -z $GIT_OFF ]
 	then
