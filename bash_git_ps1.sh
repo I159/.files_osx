@@ -90,8 +90,13 @@ make_psONE()
 
 	if [ -z $GIT_OFF ]
 	then
+		GIT_OFF=0
+	fi
+
+	if [[ $GIT_OFF -eq 0 ]]
+	then
 		IS_GIT=$(git rev-parse --git-dir 2> /dev/null)
-		if [ -n "$IS_GIT" ]
+		if [ -n "$IS_GIT" ] 
 		then
 			PS1="$PS1${CYAN}$(branch_name)$(get_rev_count)${LIGHT_RED}$(get_state)"
 		fi
