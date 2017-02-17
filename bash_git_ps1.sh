@@ -84,14 +84,7 @@ get_rev_count()
 }
 
 make_psONE()
-# Git operations could be expensive and a term could rebate. To disable git operations set GIT_OFF=1.
 {
-	#CD_GIT=$( history 2 | grep "\d  git\|\d  cd" | wc -l )
-	#if [[ $CD_GIT -gt 0 ]]
-	#then
-		#export BOOO=$( shuf -i1-10 -n1 )
-	#fi
-
 	PS1="${YELLOW}\u:${LIGHT_GREEN}\w"
 
 	if [[ ${#VIRTUAL_ENV} -gt 0 ]]
@@ -104,8 +97,7 @@ make_psONE()
 		GIT_OFF=0
 	fi
 
-	REFRESH=$( history 2 | grep "\d  git\|\d  cd" | wc -l )
-	echo $RERESH
+	REFRESH=$( fc -ln -1 | grep "git\|cd"| wc -l )
 	IS_GIT=$(git rev-parse --git-dir 2> /dev/null)
 	if [[ $REFRESH -gt 0 ]] || [ -z $GIT_STAFF ]
 	then
