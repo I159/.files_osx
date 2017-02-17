@@ -86,33 +86,25 @@ get_rev_count()
 make_psONE()
 # Git operations could be expensive and a term could rebate. To disable git operations set GIT_OFF=1.
 {
-	#CD_GIT=$( history 2 | grep "\d  git\|\d  cd" | wc -l )
-	#if [[ $CD_GIT -gt 0 ]]
-	#then
-		#export BOOO=$( shuf -i1-10 -n1 )
-	#fi
-
-	PS1="${YELLOW}\u:${LIGHT_GREEN}\w"
-
-	if [[ ${#VIRTUAL_ENV} -gt 0 ]]
+	CD_GIT=$( history 2 | grep "\d  git\|\d  cd" | wc -l )
+	if [[ $CD_GIT -gt 0 ]] || [ -z $EXISTS ]
 	then
-		PS1="$(get_venv)$PS1"
-	fi
+		EXISTS=1
+		PS1="${YELLOW}\u:${LIGHT_GREEN}\w"
 
-	if [ -z $GIT_OFF ]
-	then
-		GIT_OFF=0
-	fi
+		if [[ ${#VIRTUAL_ENV} -gt 0 ]]
+		then
+			PS1="$(get_venv)$PS1"
+		fi
 
-	if [[ $GIT_OFF -eq 0 ]]
-	then
 		IS_GIT=$(git rev-parse --git-dir 2> /dev/null)
-		if [ -n "$IS_GIT" ] 
+		if [ -n "$IS_GIT" ]
 		then
 			PS1="$PS1${CYAN}$(branch_name)$(get_rev_count)${LIGHT_RED}$(get_state)"
 		fi
+		PS1="$PS1 ${LIGHT_YELLOW}$ ${RESET}"
 	fi
-	PS1="$PS1 ${LIGHT_YELLOW}$ ${RESET}"
+
 }
 
 PROMPT_COMMAND=make_psONE
