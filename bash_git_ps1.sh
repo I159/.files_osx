@@ -104,9 +104,10 @@ make_psONE()
 		GIT_OFF=0
 	fi
 
-	CD_GIT=$( history 2 | grep "\d  git\|\d  cd" )
+	REFRESH=$( history 2 | grep "\d  git\|\d  cd" | wc -l )
+	echo $RERESH
 	IS_GIT=$(git rev-parse --git-dir 2> /dev/null)
-	if [[ $CD_GIT -gt 0 ]] || [ -z $GIT_STAFF ]
+	if [[ $REFRESH -gt 0 ]] || [ -z $GIT_STAFF ]
 	then
 		if [ -n "$IS_GIT" ]
 		then
@@ -114,7 +115,6 @@ make_psONE()
 		fi
 	fi
 
-	echo $CD_GIT
 	if [ -n $GIT_STAFF ] && [[ ${#IS_GIT} -gt 0 ]]
 	then
 		PS1=$GIT_STAFF
