@@ -23,12 +23,6 @@ get_venv()
 	echo "(${VIRTUAL_ENV##/*/})"
 }
 
-get_pwd()
-{
-	PWD=$(pwd)
-	echo "${PWD/$HOME/HOME}"
-}
-
 get_state()
 {
 	RAW_STATUS=$(git status 2> /dev/null)
@@ -98,7 +92,7 @@ make_psONE()
 		#export BOOO=$( shuf -i1-10 -n1 )
 	#fi
 
-	PS1="${YELLOW}$(whoami):${LIGHT_GREEN}$(get_pwd)"
+	PS1="${YELLOW}\u:${LIGHT_GREEN}\w"
 
 	if [[ ${#VIRTUAL_ENV} -gt 0 ]]
 	then
