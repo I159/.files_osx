@@ -1,3 +1,4 @@
+#!/bin/bash -i
 YELLOW='\[\033[0;36m\]'
 GREEN='\[\033[0;32m\]'
 LIGHT_GREEN='\[\033[0;92m\]'
@@ -91,6 +92,12 @@ get_rev_count()
 make_psONE()
 # Git operations could be expensive and a term could rebate. To disable git operations set GIT_OFF=1.
 {
+	#CD_GIT=$( history 2 | grep "\d  git\|\d  cd" | wc -l )
+	#if [[ $CD_GIT -gt 0 ]]
+	#then
+		#export BOOO=$( shuf -i1-10 -n1 )
+	#fi
+
 	PS1="${YELLOW}$(whoami):${LIGHT_GREEN}$(get_pwd)"
 
 	if [[ ${#VIRTUAL_ENV} -gt 0 ]]
