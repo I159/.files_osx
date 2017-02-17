@@ -35,48 +35,50 @@ get_state()
 
 	if [ $( grep "CONFLICT" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'%'
+		STATE=$STATE'☠'
 	fi
 
 	if [  $( grep "Untracked files" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'#'
+		STATE=$STATE'⛟'
 	fi
 
 	if [  $( grep "Changes not staged for commit" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'~'
+		STATE=$STATE'☁'
 	fi
 
 	if [  $( grep "Changes to be committed" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'@'
+		STATE=$STATE'☀'
 	fi
 
 	if [ -n "$STASH" ]
 	then
-		STATE=$STATE'?'
+		STATE=$STATE'☓'
 	fi
 
 	if [  $( grep "rebase in progress" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'^'
+		STATE=$STATE'☄'
 	fi
 	echo $STATE
 }
 
 get_rev_count()
 {
-	REMOTE_REV_COUNT=$( git rev-list --count  ..remotes/origin/HEAD )
-    LOCAL_REV_COUNT=$( git rev-list --count  remotes/origin/HEAD.. )
-	if [[ ( $REMOTE_REV_COUNT > 0 ) ]]
-	then
-		COUNT=$STATE"$GREEN$REMOTE_REV_COUNT"
-	fi
+	LOCAL_REV_COUNT=$( git rev-list --count  ..remotes/origin/HEAD )
+    REMOTE_REV_COUNT=$( git rev-list --count  remotes/origin/HEAD.. )
 
-	if [[ ( $LOCAL_REV_COUNT > 0 ) ]]
+	if [[ ( $REMOTE_REV_COUNT > 0 ) ]] && [[ ( $LOCAL_REV_COUNT > 0 ) ]]
 	then
-		COUNT=$STATE"$RESET/$RED$LOCAL_REV_COUNT$RESET"
+		COUNT=$STATE"$RED$REMOTE_REV_COUNT$RESET/$GREEN$LOCAL_REV_COUNT$RESET"
+	elif [[ ( $LOCAL_REV_COUNT > 0 ) ]]
+	then
+		COUNT=$STATE"$GREEN$LOCAL_REV_COUNT$RESET"
+	elif [[ ( $REMOTE_REV_COUNT > 0 ) ]]
+	then
+		COUNT=$STATE"$RED$REMOTE_REV_COUNT$RESET"
 	fi
 
 	if [[ ( ${#COUNT} > 0 ) ]]
