@@ -67,12 +67,11 @@ get_state()
 
 get_rev_count()
 {
-	MERGE_BRANCH=$( git config --get branch.master.merge 2> /dev/null )
-	MERGE_REV_COUNT=$( git rev-list --count $MERGE_BRANCH..HEAD )
-    LOCAL_REV_COUNT=$( git rev-list --count HEAD..$MERGE_BRANCH )
-	if [[ ( $MERGE_REV_COUNT > 0 ) ]]
+	REMOTE_REV_COUNT=$( git rev-list --count  ..remotes/origin/HEAD )
+    LOCAL_REV_COUNT=$( git rev-list --count  remotes/origin/HEAD.. )
+	if [[ ( $REMOTE_REV_COUNT > 0 ) ]]
 	then
-		COUNT=$STATE"$GREEN$MERGE_REV_COUNT"
+		COUNT=$STATE"$GREEN$REMOTE_REV_COUNT"
 	fi
 
 	if [[ ( $LOCAL_REV_COUNT > 0 ) ]]
