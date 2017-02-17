@@ -40,7 +40,7 @@ get_state()
 
 	if [  $( grep "Untracked files" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'⛟'
+		STATE=$STATE'⛈'
 	fi
 
 	if [  $( grep "Changes not staged for commit" <<< $RAW_STATUS| wc -l) -ne 0 ]
@@ -55,7 +55,7 @@ get_state()
 
 	if [ -n "$STASH" ]
 	then
-		STATE=$STATE'☓'
+		STATE=$STATE'⛅'
 	fi
 
 	if [  $( grep "rebase in progress" <<< $RAW_STATUS| wc -l) -ne 0 ]
