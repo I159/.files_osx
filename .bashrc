@@ -67,8 +67,3 @@ export GOPATH=$HOME/go_workspace
 
 # Add GOPATH/bin to PATH
 export PATH=$PATH:$GOPATH/bin
-
-if [ -f $(brew --prefix)/etc/bash_completion ]
-then
-  . $(brew --prefix)/etc/bash_completion
-fi

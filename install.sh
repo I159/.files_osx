@@ -39,10 +39,18 @@ else
 	mv -f $HOME/.bashrc $HOME/.backup_dot_files
 fi
 
+if [ -L $HOME/.bash_profile ]
+then
+	rm -f $HOME/.bash_profile
+else
+	mv -f $HOME/.bash_profile $HOME/.backup_dot_files
+fi
+
 echo -e "Create symbolic links to dot files"
 ln -s $DOTFILES/.gitconfig.exmpl  $HOME/.gitconfig
 ln -s $DOTFILES/bash_git_ps1.sh $HOME/__git_ps1.sh
 ln -s $DOTFILES/.bashrc $HOME/.bashrc
+ln -s $DOTFILES/.bash_profile $HOME/.bash_profile
 ln -s $DOTFILES/.vimrc $HOME/.vimrc
 rm $HOME/.vim
 ln -s $DOTFILES/.vim $HOME/.vim

@@ -51,6 +51,8 @@ let NERDTreeIgnore = ['\.swo$', '\.swp$']
 " Open files on new buffers
 let NERDTreeMapOpenInTab='\r'
 
+let NERDTreeShowHidden=1
+
 " ----------------------- mappings ------------------------------
 " Set leader
 let mapleader = ","
