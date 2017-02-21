@@ -92,27 +92,22 @@ make_psONE()
 		PS1="$(get_venv)$PS1"
 	fi
 
-	if [ -z $GIT_OFF ]
-	then
-		GIT_OFF=0
-	fi
-
 	REFRESH=$( fc -ln -1 | grep "git\|cd"| wc -l )
-	IS_GIT=$(git rev-parse --git-dir 2> /dev/null)
 	if [[ $REFRESH -gt 0 ]] || [ -z $GIT_STAFF ]
 	then
+		IS_GIT=$(git rev-parse --git-dir 2> /dev/null)
 		if [ -n "$IS_GIT" ]
 		then
-			GIT_STAFF="$PS1${CYAN}$(branch_name)$(get_rev_count)${LIGHT_RED}$(get_state)"
+			GIT_STAFF="${CYAN}$(branch_name)$(get_rev_count)${LIGHT_RED}$(get_state)"
 		fi
 	fi
 
 	if [ -n $GIT_STAFF ] && [[ ${#IS_GIT} -gt 0 ]]
 	then
-		PS1=$GIT_STAFF
+		PS1=${PS1}${GIT_STAFF}
 	fi
 
-	PS1="$PS1 ${LIGHT_YELLOW}$ ${RESET}"
+	PS1="${PS1} ${LIGHT_YELLOW}$ ${RESET}"
 }
 
 PROMPT_COMMAND=make_psONE
