@@ -4,10 +4,10 @@
 let NERDTreeIgnore = ['\.pyc$']
 
 " 80 symbols color column
-set colorcolumn=80
+set colorcolumn=120
 highlight ColorColumn ctermbg=233
 highlight OverLength ctermfg=244
-match OverLength /\%80v.*/
+match OverLength /\%120v.*/
 
 " Enable python syntax checker
 let g:syntastic_python_checkers = ['pylint']
