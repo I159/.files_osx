@@ -62,8 +62,8 @@ get_state()
 
 get_rev_count()
 {
-	LOCAL_REV_COUNT=$( git rev-list --count  ..remotes/origin/HEAD )
-    REMOTE_REV_COUNT=$( git rev-list --count  remotes/origin/HEAD.. )
+	LOCAL_REV_COUNT=$( git rev-list --count  ..remotes/origin/master 2> /dev/null)
+    REMOTE_REV_COUNT=$( git rev-list --count  remotes/origin/master.. 2> /dev/null)
 
 	if [[ ( $REMOTE_REV_COUNT > 0 ) ]] && [[ ( $LOCAL_REV_COUNT > 0 ) ]]
 	then
