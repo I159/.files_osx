@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/gotests-vim"]
 	path = .vim/bundle/gotests-vim
 	url = git@github.com:buoto/gotests-vim.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
