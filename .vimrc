@@ -38,6 +38,9 @@ set shiftwidth=4
 set list
 set listchars=trail:.,tab:>-
 
+" Highlite current line
+set cursorline
+
 " enable file type plugins
 filetype plugin indent on
 filetype plugin on
@@ -86,8 +89,9 @@ map <leader>b :bprevious<CR>
 map <leader>f :bnext<CR>
 map <leader>ls :ls<CR>
 
-" Line break
+" Line breaks
 map % i<CR><Esc>
+map <leader>l :s/,/\0\r/g<CR>
 
 " Remove trailing whitespaces
 map <leader>dt :%s/\s\+$//e<CR>
