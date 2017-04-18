@@ -20,7 +20,8 @@ let g:go_fmt_command = "goimports"
 " ------------------- Mappings ----------------------------
 map <leader>c <Plug>(go-coverage)
 map <leader>t <Plug>(go-test)
-map <Leader>i <Plug>(go-info)
+map <leader>i <Plug>(go-info)
+map <leader>gi :GoImplement<CR>
 
 " Generate tests
 map <leader>gt :GoTests<CR>
