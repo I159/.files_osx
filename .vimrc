@@ -80,14 +80,17 @@ nnoremap <C-h> <C-W><C-H>
 
 " Toggle nerdtree
 map <leader>n :NERDTreeToggle<CR>
+" NerdTree default size
+map <leader>N :NERDTree<CR>
 
 " List recently edited files
 map <leader>mr :MRU<CR>
 
 " Buffers navigation
-map <leader>b :bprevious<CR>
+nnoremap <leader>b :bprevious<CR>
 map <leader>f :bnext<CR>
 map <leader>ls :ls<CR>
+map <leader>v :BuffergatorToggle<CR>
 
 " Line breaks
 map % i<CR><Esc>
