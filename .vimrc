@@ -56,6 +56,9 @@ let NERDTreeMapOpenInTab='\r'
 
 let NERDTreeShowHidden=1
 
+" Fold
+set foldmethod=syntax
+
 " ----------------------- mappings ------------------------------
 " Set leader
 let mapleader = ","
