@@ -94,7 +94,7 @@ map <leader>mr :MRU<CR>
 nnoremap <leader>b :bprevious<CR>
 map <leader>f :bnext<CR>
 map <leader>ls :ls<CR>
-map <leader>v :BuffergatorToggle<CR>
+map <leader>v :BuffergatorToggle<CR> \| <C-W><C-J> \| <C-W>-
 
 " Line breaks
 map % i<CR><Esc>
