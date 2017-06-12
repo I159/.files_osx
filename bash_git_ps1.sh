@@ -1,4 +1,5 @@
 #!/bin/bash -i
+# TODO: F*uck it! Write it on Python!
 YELLOW='\[\033[0;36m\]'
 GREEN='\[\033[0;32m\]'
 LIGHT_GREEN='\[\033[0;92m\]'

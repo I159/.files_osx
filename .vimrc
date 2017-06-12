@@ -94,7 +94,7 @@ map <leader>mr :MRU<CR>
 nnoremap <leader>b :bprevious<CR>
 map <leader>f :bnext<CR>
 map <leader>ls :ls<CR>
-map <leader>v :BuffergatorToggle<CR> \| <C-W><C-J> \| <C-W>-
+map <leader>v :BuffergatorToggle<CR>
 
 " Line breaks
 map % i<CR><Esc>
@@ -116,3 +116,7 @@ endfunction
 
 command -nargs=+ RefactorCmd :call Refactor(<f-args>)
 vnoremap // y:RefactorCmd <C-R>" 
+
+" Auto pairs
+let g:AutoPairsShortcutToggle = '<leader>pp'
+let g:AutoPairsShortcutFastWrap = '<leader>fw'
