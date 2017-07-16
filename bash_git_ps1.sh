@@ -31,32 +31,32 @@ get_state()
 
 	if [ $( grep "CONFLICT" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'☠'
+		STATE="$STATE † "
 	fi
 
 	if [  $( grep "Untracked files" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'⛈'
+		STATE="$STATE ø "
 	fi
 
 	if [  $( grep "Changes not staged for commit" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'☁'
+		STATE="$STATE ≈ "
 	fi
 
 	if [  $( grep "Changes to be committed" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'☀'
+		STATE="$STATE ∆ "
 	fi
 
 	if [ -n "$STASH" ]
 	then
-		STATE=$STATE'⛅'
+		STATE="$STATE ÷ "
 	fi
 
 	if [  $( grep "rebase in progress" <<< $RAW_STATUS| wc -l) -ne 0 ]
 	then
-		STATE=$STATE'☄'
+		STATE="$STATE ¬ "
 	fi
 	echo $STATE
 }
