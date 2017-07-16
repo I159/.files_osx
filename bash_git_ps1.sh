@@ -93,14 +93,10 @@ make_psONE()
 		PS1="$(get_venv)$PS1"
 	fi
 
-	REFRESH=$( fc -ln -1 | grep "git\|cd"| wc -l )
-	if [[ $REFRESH -gt 0 ]] || [ -z $GIT_STAFF ]
+	IS_GIT=$(git rev-parse --git-dir 2> /dev/null)
+	if [ -n "$IS_GIT" ]
 	then
-		IS_GIT=$(git rev-parse --git-dir 2> /dev/null)
-		if [ -n "$IS_GIT" ]
-		then
-			GIT_STAFF="${CYAN}$(branch_name)$(get_rev_count)${LIGHT_RED}$(get_state)"
-		fi
+		GIT_STAFF="${CYAN}$(branch_name)$(get_rev_count)${LIGHT_RED}$(get_state)"
 	fi
 
 	if [ -n $GIT_STAFF ] && [[ ${#IS_GIT} -gt 0 ]]

@@ -8,3 +8,5 @@ then
 fi
 
 export RIOTAPIKEY_TEST="RGAPI-8383493d-6307-40ca-ac2a-4ac9cbb72605"
+export PATH="/usr/local/opt/apr-util/bin:$PATH"
+export PATH=$PATH:/usr/local/sbin
