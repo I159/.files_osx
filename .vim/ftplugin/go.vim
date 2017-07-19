@@ -22,6 +22,5 @@ map <leader>c <Plug>(go-coverage)
 map <leader>t <Plug>(go-test)
 map <leader>i <Plug>(go-info)
 map <leader>gi :GoImplement<CR>
-
-" Generate tests
+map <leader>gd :GoDef<CR>
 map <leader>gt :GoTests<CR>
