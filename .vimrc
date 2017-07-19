@@ -97,7 +97,7 @@ map <leader>ls :ls<CR>
 map <leader>v :BuffergatorToggle<CR>
 
 " Line breaks
-map <leader>% i<CR><Esc>
+map <leader>* i<CR><Esc>
 map <leader>l :s/,/\0\r/g<CR>
 
 " Remove trailing whitespaces
