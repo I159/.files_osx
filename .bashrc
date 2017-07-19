@@ -32,7 +32,11 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	# We have color support; assume it's compliant with Ecma-48
 	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
 	# a case would tend to support setf rather than setaf.)
-	. ~/__git_ps1.sh
+	#. ~/__git_ps1.sh
+	source ~/.git-prompt.sh
+	export GIT_PS1_SHOWCOLORHINTS=1
+	export GIT_PS1_SHOWDIRTYSTATE=1
+	export PROMPT_COMMAND='__git_ps1 "\u:\w" "\\\$ "'
 fi
 
 # enable color support of ls and also add handy aliases
