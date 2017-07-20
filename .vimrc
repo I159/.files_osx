@@ -52,10 +52,6 @@ nnoremap <C-j> <C-W><C-J>
 nnoremap <C-k> <C-W><C-K>
 nnoremap <C-l> <C-W><C-L>
 nnoremap <C-h> <C-W><C-H>
-nmap <c-j> 8j
-nmap <c-k> 8k
-nmap <c-h> 8h
-nmap <c-l> 8l
 " Toggle paste mode
 " FIXME
 set pastetoggle=<f5>
@@ -73,8 +69,6 @@ map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTree<CR>
 " Previous buffer
 nnoremap <leader>b :bprevious<CR>
-" Next buffer
-map <leader>f :bnext<CR>
 " NerdTree default size
 map <leader>v :BuffergatorToggle<CR>
 
@@ -87,6 +81,8 @@ map <F4> :set hlsearch! hlsearch?<CR>
 " List recently edited files
 map <leader>mr :MRU<CR>
 map <leader>ls :ls<CR>
+" Next buffer
+map <leader>ff :bnext<CR>
 " Line breaks
 map <leader>lb i<CR><Esc>
 map <leader>ll :s/,/\0\r/g<CR>
@@ -94,7 +90,7 @@ map <leader>ll :s/,/\0\r/g<CR>
 map <leader>dt :%s/\s\+$//e<CR>
 " Auto pairs
 let g:AutoPairsShortcutToggle = '<leader>pp'
-let g:AutoPairsShortcutFastWrap = '<leader>fw'
+"let g:AutoPairsShortcutFastWrap = '<leader>fw'
 
 " Ctrl commands
 " Replace after cursor
