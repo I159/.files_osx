@@ -24,3 +24,4 @@ map <leader>i <Plug>(go-info)
 map <leader>gi :GoImplement<CR>
 map <leader>gd :GoDef<CR>
 map <leader>gt :GoTests<CR>
+map <leader>gb :GoBuild<CR>
