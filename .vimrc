@@ -54,7 +54,7 @@ nnoremap <C-l> <C-W><C-L>
 nnoremap <C-h> <C-W><C-H>
 " Toggle paste mode
 " FIXME
-set pastetoggle=<f5>
+set pastetoggle=<leader>sp
 
 " Single letter commands. FIXME: shouldn't be too much
 " Save with ,w
