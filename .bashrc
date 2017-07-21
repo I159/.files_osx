@@ -34,6 +34,7 @@ fi
 	# a case would tend to support setf rather than setaf.)
 	#. ~/__git_ps1.sh
 	# Some useful ubuntu ps1. TODO: implement a condition
+	# Use default git bash completion ps1
 #fi
 
 # enable color support of ls and also add handy aliases
