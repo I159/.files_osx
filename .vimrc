@@ -1,6 +1,14 @@
 "            ---=== The Great VIM config ===---
 "                    *** since 2014 ***        
 
+" ISSUES:
+" * Multi file/buffer replace
+" * Multi file/buffer jump
+" * Multi word refactoring
+" * List usages
+" * Surround
+" * Single letter commands conflicts
+" * Not all bracket jumps work
 
 " ----------------------- settings -----------------------------
 
