@@ -17,3 +17,4 @@
 [alias]
 	a = "!git add --all && git commit -a && git show --stat"
 	ss = show --stat
+	pm = "!git push origin master"
