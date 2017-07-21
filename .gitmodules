@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/auto-pairs"]
 	path = .vim/bundle/auto-pairs
 	url = git@github.com:jiangmiao/auto-pairs.git
+[submodule ".vim/bundle/vim-indentwise"]
+	path = .vim/bundle/vim-indentwise
+	url = https://github.com/jeetsukumaran/vim-indentwise

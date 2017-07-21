@@ -9,6 +9,7 @@
 " * Surround
 " * Single letter commands conflicts
 " * Not all bracket jumps work
+" * Remove breckets in pair
 
 " ----------------------- settings -----------------------------
 
@@ -48,7 +49,7 @@ let NERDTreeIgnore = ['\.swo$', '\.swp$']
 let NERDTreeMapOpenInTab='\r'
 let NERDTreeShowHidden=1
 " Fold
-set foldmethod=syntax
+set foldmethod=manual
 set foldlevel=10
 
 " ----------------------- mappings ------------------------------
@@ -107,7 +108,8 @@ map <C-g> <C-v>$s
 " Custom functions. FIXME: make plugins
 " Replace with confirmation
 function! Refactor(old, new)
-	exe '%s/' . a:old . '/' . a:new . '/gc'
+	exe 'set autowriteall'
+	exe 'bufdo %s/' . a:old . '/' . a:new . '/gc'
 endfunction
 
 command -nargs=+ RefactorCmd :call Refactor(<f-args>)
