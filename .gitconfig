@@ -17,6 +17,7 @@
 [alias]
 	a = "!git add --all && git commit -a && git show --stat"
 	ss = show --stat
-	pm = "!git push origin master"
-	pl = "!git pull origin master"
-	rmr = push origin --delete 
+	pm = push origin master
+	pl = pull origin master
+	rmr = push origin --delete
+	po = push origin
