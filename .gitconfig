@@ -19,3 +19,4 @@
 	ss = show --stat
 	pm = "!git push origin master"
 	pl = "!git pull origin master"
+	rmr = push origin --delete 
