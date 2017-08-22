@@ -28,14 +28,13 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-#if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	#. ~/__git_ps1.sh
-	# Some useful ubuntu ps1. TODO: implement a condition
-	# Use default git bash completion ps1
-#fi
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	source ~/.git-prompt.sh
+	export GIT_PS1_SHOWCOLORHINTS=1
+	export GIT_PS1_SHOWDIRTYSTATE=1
+	PS1='__git_ps1 "\[\033[32m\]\u:\[\033[33;1m\]\w\e[0m" "\\\$ "'
+	export PROMPT_COMMAND="${PS1}; $PROMPT_COMMAND"
+fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
