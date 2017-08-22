@@ -29,9 +29,17 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+
+	# Colors
+	RESET='\e[0m'
+	ORANGE='\e[38;5;202m'
+	YELLOW='\e[38;5;226m'
+	GREEN='\e[38;5;10m'
+
+	. /etc/bash_completion.d/git-prompt
 	export GIT_PS1_SHOWCOLORHINTS=1
 	export GIT_PS1_SHOWDIRTYSTATE=1
-	PS1='\u:\[\033[33;1m\]\w\[\033[32m\]$(__git_ps1)\e[0m\$ '
+	export PROMPT_COMMAND='__git_ps1 "\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\e[0m "'
 fi
 
 # enable color support of ls and also add handy aliases
