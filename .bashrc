@@ -39,7 +39,7 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	. /etc/bash_completion.d/git-prompt
 	export GIT_PS1_SHOWCOLORHINTS=1
 	export GIT_PS1_SHOWDIRTYSTATE=1
-	export PROMPT_COMMAND='__git_ps1 "\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\e[0m "'
+	export PROMPT_COMMAND='__git_ps1 "\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\[${RESET}\] "'
 fi
 
 # enable color support of ls and also add handy aliases
