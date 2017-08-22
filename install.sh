@@ -19,5 +19,5 @@ else
 fi
 
 echo -e "Create symbolic links to dot files"
-ln -s $DOTFILES/.gitconfig.exmpl  $HOME/.gitconfig
+ln -s $DOTFILES/.gitconfig $HOME/.gitconfig
 ln -s $DOTFILES/.bashrc $HOME/.bashrc
