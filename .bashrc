@@ -31,8 +31,7 @@ fi
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	export GIT_PS1_SHOWCOLORHINTS=1
 	export GIT_PS1_SHOWDIRTYSTATE=1
-	PS1='__git_ps1 "\[\033[32m\]\u:\[\033[33;1m\]\w\e[0m" "\\\$ "'
-	export PROMPT_COMMAND="${PS1}; $PROMPT_COMMAND"
+	PS1='\u:\[\033[33;1m\]\w\[\033[32m\]$(__git_ps1)\e[0m\$ '
 fi
 
 # enable color support of ls and also add handy aliases
