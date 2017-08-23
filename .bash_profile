@@ -1,9 +1,5 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+# Keep current location when new tab opened
+PROMPT_COMMAND="update_terminal_cwd; $PROMPT_COMMAND"
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -23,23 +19,24 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
+# Use macvim in terminal
+alias vim='mvim -v'
+alias gwb='cd ~/go_workspace/src/bitbucket.org'
+alias gwg='cd ~/go_workspace/src/github.com'
 
+# Lovely PS1
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-
 	# Colors
 	RESET='\e[0m'
 	ORANGE='\e[38;5;202m'
 	YELLOW='\e[38;5;226m'
 	GREEN='\e[38;5;10m'
 
-	. /etc/bash_completion.d/git-prompt
+	source ~/.git-prompt.sh
 	export GIT_PS1_SHOWCOLORHINTS=1
 	export GIT_PS1_SHOWDIRTYSTATE=1
-	export PROMPT_COMMAND='__git_ps1 "\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\[${RESET}\] "'
+	PS1='__git_ps1 "\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\[${RESET}\] "'
+	export PROMPT_COMMAND="${PS1}; $PROMPT_COMMAND"
 fi
 
 # enable color support of ls and also add handy aliases
