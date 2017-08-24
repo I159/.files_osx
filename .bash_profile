@@ -61,6 +61,20 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Push Go project code coverage
+function cc-push-go-coverage {
+	export CC_TEST_REPORTER_ID=5bedf25c5d3395678023cf06e9a2b67ad29f25b7fbcde0c45cd0eb3138306d78
+
+	for pkg in $(go list ./... | grep -v vendor); do
+    go test -coverprofile=$(echo $pkg | tr / -).cover $pkg
+	done
+	echo "mode: set" > c.out
+	grep -h -v "^mode:" ./*.cover >> c.out
+	rm -f *.cover
+
+	./cc-test-reporter after-build
+}
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
