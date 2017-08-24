@@ -16,6 +16,8 @@
 	editor = vim
 [alias]
 	a = "!git add --all && git commit -a && git show --stat"
+	d = diff
+	s = status
 	ss = show --stat
 	pm = push origin master
 	pl = pull origin master
