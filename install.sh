@@ -26,4 +26,4 @@ fi
 echo -e "Create symbolic links to dot files"
 ln -fs $PWD/.gitconfig $HOME/.gitconfig
 ln -fs $PWD/.gitignore $HOME/.gitignore
-ln -fs $PWD/.bashrc $HOME/.bashrc
+ln -sf $PWD/.bash_profile $HOME/.bash_profile
