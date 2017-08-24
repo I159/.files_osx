@@ -39,6 +39,11 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	export PROMPT_COMMAND="${PS1}; $PROMPT_COMMAND"
 fi
 
+# git tab completion (homebrew)
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+    . `brew --prefix`/etc/bash_completion.d/git-completion.bash
+fi
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
