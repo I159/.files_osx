@@ -27,3 +27,8 @@ echo -e "Create symbolic links to dot files"
 ln -fs $PWD/.gitconfig $HOME/.gitconfig
 ln -fs $PWD/.gitignore $HOME/.gitignore
 ln -sf $PWD/.bash_profile $HOME/.bash_profile
+
+curl -o ~/.git-prompt.sh \
+    https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+
+source $HOME/.bash_profile
