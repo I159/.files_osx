@@ -1,3 +1,5 @@
+# Enable 256 colors
+export TERM='xterm-256color'
 # Keep current location when new tab opened
 PROMPT_COMMAND="update_terminal_cwd; $PROMPT_COMMAND"
 
@@ -40,8 +42,8 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 fi
 
 # git tab completion (homebrew)
-if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
-    . `brew --prefix`/etc/bash_completion.d/git-completion.bash
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
 fi
 
 # enable color support of ls and also add handy aliases
