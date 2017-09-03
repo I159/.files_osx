@@ -9,11 +9,11 @@ else
 	mv -f $HOME/.gitconfig $HOME/.backup_dot_files-$DATE
 fi
 
-if [ -L $HOME/.gitignore ]
+if [ -L $HOME/.gitignore_global ]
 then
-	rm -f $HOME/.gitignore
+	rm -f $HOME/.gitignore_global
 else
-	mv -f $HOME/.gitignore $HOME/.backup_dot_files-$DATE
+	mv -f $HOME/.gitignore_global $HOME/.backup_dot_files-$DATE
 fi
 
 if [ -L $HOME/.bash_profile ]
@@ -25,10 +25,11 @@ fi
 
 echo -e "Create symbolic links to dot files"
 ln -fs $PWD/.gitconfig $HOME/.gitconfig
-ln -fs $PWD/.gitignore $HOME/.gitignore
+ln -fs $PWD/.gitignore_global $HOME/.gitignore_global
 ln -sf $PWD/.bash_profile $HOME/.bash_profile
 
-curl -o ~/.git-prompt.sh \
-    https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+git config --global core.excludesfile ~/.gitignore_global
+
+curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 
 source $HOME/.bash_profile
