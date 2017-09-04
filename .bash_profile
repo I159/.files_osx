@@ -58,8 +58,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+export CLICOLOR=1
+export LSCOLORS=cxfxcxdxbxegedabagacad
+
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alFGp'
 alias la='ls -A'
 alias l='ls -CF'
 
