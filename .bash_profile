@@ -31,19 +31,22 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	# Colors
 	RESET='\e[0m'
 	ORANGE='\e[38;5;202m'
+	LIGHT_GREEN='\e[38;5;118m'
 	YELLOW='\e[38;5;226m'
 	GREEN='\e[38;5;10m'
 
 	source ~/.git-prompt.sh
 	export GIT_PS1_SHOWCOLORHINTS=1
 	export GIT_PS1_SHOWDIRTYSTATE=1
-	PS1='__git_ps1 "\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\[${RESET}\] "'
+	PS1='__git_ps1 "\[${LIGHT_GREEN}\][\T]\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\[${RESET}\] "'
 	export PROMPT_COMMAND="${PS1}; $PROMPT_COMMAND"
 fi
 
 # git tab completion (homebrew)
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
+else
+	. ~/.git-completion.bash
 fi
 
 # enable color support of ls and also add handy aliases
@@ -95,6 +98,3 @@ export GOPATH=$HOME/go_workspace
 
 # Add GOPATH/bin to PATH
 export PATH=$PATH:$GOPATH/bin
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
