@@ -34,12 +34,28 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	LIGHT_GREEN='\e[38;5;118m'
 	YELLOW='\e[38;5;226m'
 	GREEN='\e[38;5;10m'
+	LGREEN='\e[38;5;154m'
+
+	set_active_venv() {
+		export ACTIVE_VENV=""
+		if [ "$VIRTUAL_ENV" != "" ]; then
+			export ACTIVE_VENV="(${LGREEN}${VIRTUAL_ENV##*/}${RESET})"
+		fi
+	}
 
 	source ~/.git-prompt.sh
+	export GIT_PS1_SHOWUNTRACKEDFILES=1
+	export GIT_PS1_SHOWUPSTREAM="auto"
 	export GIT_PS1_SHOWCOLORHINTS=1
 	export GIT_PS1_SHOWDIRTYSTATE=1
+<<<<<<< HEAD
 	PS1='__git_ps1 "\[${LIGHT_GREEN}\][\T]\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\[${RESET}\] "'
 	export PROMPT_COMMAND="${PS1}; $PROMPT_COMMAND"
+=======
+	export VIRTUAL_ENV_DISABLE_PROMPT=1
+	PS1='__git_ps1 "${ACTIVE_VENV}\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\[${RESET}\] "'
+	export PROMPT_COMMAND="set_active_venv; ${PS1}; $PROMPT_COMMAND"
+>>>>>>> Virtualenv & virtualenvwrapper
 fi
 
 # git tab completion (homebrew)
@@ -90,11 +106,12 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# Include Go bin into path
-export PATH=$PATH:/usr/local/go/bin
-
 # Set Go workspace
 export GOPATH=$HOME/go_workspace
 
 # Add GOPATH/bin to PATH
 export PATH=$PATH:$GOPATH/bin
+
+# Python virtualenv & wrapper
+export WORKON_HOME=~/virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
