@@ -34,12 +34,12 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	LIGHT_GREEN='\e[38;5;118m'
 	YELLOW='\e[38;5;226m'
 	GREEN='\e[38;5;10m'
-	LGREEN='\e[38;5;154m'
+	PEACH='\e[38;5;196m'
 
 	set_active_venv() {
 		export ACTIVE_VENV=""
 		if [ "$VIRTUAL_ENV" != "" ]; then
-			export ACTIVE_VENV="(${LGREEN}${VIRTUAL_ENV##*/}${RESET})"
+			export ACTIVE_VENV="\[${PEACH}\](${VIRTUAL_ENV##*/})\[${RESET}\]"
 		fi
 	}
 
@@ -48,14 +48,9 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	export GIT_PS1_SHOWUPSTREAM="auto"
 	export GIT_PS1_SHOWCOLORHINTS=1
 	export GIT_PS1_SHOWDIRTYSTATE=1
-<<<<<<< HEAD
-	PS1='__git_ps1 "\[${LIGHT_GREEN}\][\T]\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\[${RESET}\] "'
-	export PROMPT_COMMAND="${PS1}; $PROMPT_COMMAND"
-=======
 	export VIRTUAL_ENV_DISABLE_PROMPT=1
-	PS1='__git_ps1 "${ACTIVE_VENV}\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\[${RESET}\] "'
+	PS1='__git_ps1 "${ACTIVE_VENV}\[${LIGHT_GREEN}\][\T]\[${ORANGE}\]\u\[${RESET}\]:\[${YELLOW}\]\w\[${RESET}\]" " \[${GREEN}\]\\\$\[${RESET}\] "'
 	export PROMPT_COMMAND="set_active_venv; ${PS1}; $PROMPT_COMMAND"
->>>>>>> Virtualenv & virtualenvwrapper
 fi
 
 # git tab completion (homebrew)
