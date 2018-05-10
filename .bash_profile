@@ -82,8 +82,6 @@ alias l='ls -CF'
 
 # Push Go project code coverage
 function cc-push-go-coverage {
-	export CC_TEST_REPORTER_ID=5bedf25c5d3395678023cf06e9a2b67ad29f25b7fbcde0c45cd0eb3138306d78
-
 	for pkg in $(go list ./... | grep -v vendor); do
     go test -coverprofile=$(echo $pkg | tr / -).cover $pkg
 	done
@@ -91,7 +89,7 @@ function cc-push-go-coverage {
 	grep -h -v "^mode:" ./*.cover >> c.out
 	rm -f *.cover
 
-	./cc-test-reporter after-build
+	$HOME/test-reporter-latest-darwin-amd64 after-build
 }
 
 # enable programmable completion features (you don't need to enable
@@ -102,11 +100,12 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Set Go workspace
-export GOPATH=$HOME/go_workspace
+export GOPATH=$HOME/go
 
 # Add GOPATH/bin to PATH
 export PATH=$PATH:$GOPATH/bin
 
-# Python virtualenv & wrapper
-export WORKON_HOME=~/virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
