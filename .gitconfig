@@ -14,7 +14,7 @@
 	tool = vimdiff
 [core]
 	editor = vim
-	excludesfile = $HOME/.gitignore_global
+	excludesfile = /Users/i159/.gitignore_global
 [alias]
 	a = "!git add --all && git commit -a && git show --stat"
 	d = diff
