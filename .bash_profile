@@ -92,6 +92,10 @@ function cc-push-go-coverage {
 	$HOME/test-reporter-latest-darwin-amd64 after-build
 }
 
+function git_cleanup {
+    git branch -vv | cut -c 3- | awk '$3 !~/\[origin/ { print $1 }'| grep -v  $(git rev-parse --abbrev-ref HEAD)| xargs git branch -D
+}
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -107,5 +111,11 @@ export PATH=$PATH:$GOPATH/bin
 
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH
+export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+
+# Add AWS to the path
+export PATH=~/.local/bin:$PATH
+
+# Set locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
