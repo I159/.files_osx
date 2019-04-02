@@ -22,7 +22,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Use macvim in terminal
-alias vim='mvim -v'
+#alias vim='mvim -v'
 alias gwb='cd ~/go_workspace/src/bitbucket.org'
 alias gwg='cd ~/go_workspace/src/github.com'
 
@@ -119,3 +119,10 @@ export PATH=~/.local/bin:$PATH
 # Set locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+#export PATH="$PATH:/Users/i159/Library/Python/3.7/bin"
+export PATH="$PATH:/Users/i159/Library/Python/3.6/bin"
+#export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
+#export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"

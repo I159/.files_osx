@@ -17,6 +17,7 @@
 	excludesfile = /Users/i159/.gitignore_global
 [alias]
 	a = "!git add --all && git commit -a && git show --stat"
+    lo = "!git log --oneline --graph --all --decorate --abbrev-commit"
 	d = diff
 	s = status
 	ss = show --stat
@@ -24,7 +25,13 @@
 	pl = pull origin master
 	rmr = push origin --delete
 	po = push origin
+    cleanup = "!f(){ git checkout develop && git remote prune origin && git branch --merged master | grep -v 'master|develop' | xargs git branch -d; }; f"
 [diff]
 	tool = vimdiff
 [difftool]
 	prompt = false
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
