@@ -47,5 +47,6 @@ ln -sf $PWD/.tmux.conf $HOME/.tmux.conf
 git config --global core.excludesfile ~/.gitignore_global
 
 curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 
 source $HOME/.bash_profile
