@@ -126,3 +126,4 @@ export LANG=en_US.UTF-8
 export PATH="$PATH:/Users/i159/Library/Python/3.6/bin"
 #export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
 #export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"
+eval "$(pyenv init -)"
