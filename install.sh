@@ -40,6 +40,7 @@ fi
 echo -e "Create symbolic links to dot files"
 ln -fs $PWD/.gitconfig $HOME/.gitconfig
 ln -fs $PWD/.gitignore_global $HOME/.gitignore_global
+ln -sf $PWD/.gitmessage $HOME/.gitmessage
 ln -sf $PWD/.bash_profile $HOME/.bash_profile
 ln -sf $PWD/.slate $HOME/.slate
 ln -sf $PWD/.tmux.conf $HOME/.tmux.conf
