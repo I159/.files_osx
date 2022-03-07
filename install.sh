@@ -28,27 +28,18 @@ else
 	mv -f $HOME/.zprofile $HOME/.backup_dot_files-$DATE
 fi
 
-if [ -L $HOME/.slate ]
+if [ -L $HOME/.zshrc ]
 then
-	rm -f $HOME/.slate
+	rm -f $HOME/.zshrc
 else
-	mv -f $HOME/.slate $HOME/.backup_dot_files-$DATE
-fi
-
-if [ -L $HOME/.tmux.conf ]
-then
-	rm -f $HOME/.tmux.conf
-else
-	mv -f $HOME/.tmux.conf $HOME/.backup_dot_files-$DATE
+	mv -f $HOME/.zshrc $HOME/.backup_dot_files-$DATE
 fi
 
 echo -e "Create symbolic links to dot files"
 ln -fs $PWD/.gitconfig $HOME/.gitconfig
 ln -fs $PWD/.gitignore_global $HOME/.gitignore_global
-ln -sf $PWD/.gitmessage $HOME/.gitmessage
 ln -sf $PWD/.zprofile $HOME/.zprofile
-ln -sf $PWD/.slate $HOME/.slate
-ln -sf $PWD/.tmux.conf $HOME/.tmux.conf
+ln -sf $PWD/.zshrc $HOME/.zshrc
 
 git config --global core.excludesfile ~/.gitignore_global
 
